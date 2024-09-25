@@ -29,9 +29,14 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    "wishdev.common.apps.CommonConfig",
+    "wishdev.api.apps.ApiConfig",
+]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    "rest_framework",
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -40,8 +45,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # *LOCAL_APPS,
-    # *THIRD_PARTY_APPS,
+    *LOCAL_APPS,
+    *THIRD_PARTY_APPS,
 ]
 
 MIDDLEWARE = [
