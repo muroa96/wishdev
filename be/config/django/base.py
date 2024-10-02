@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ["*"]
 LOCAL_APPS = [
     "wishdev.common.apps.CommonConfig",
     "wishdev.api.apps.ApiConfig",
+    "wishdev.interviews.apps.InterviewsConfig",
 ]
 
 THIRD_PARTY_APPS = [
