@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 import {
   House,
   BookOpenText,
@@ -14,83 +12,63 @@ import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
+  SidebarHeader,
+  SidebarRail,
 } from "@/components/ui/sidebar";
+import { NavMain } from "@/src/widgets/sidebar/ui/nav-main";
+import { NavUser } from "@/src/widgets/sidebar/ui/nav-user";
 
-import { AppSidebarFooter } from "./app-sidebar-footer";
+const data = {
+  navMain: [
+    {
+      title: "Home",
+      url: "#",
+      icon: House,
+      index: 0,
+    },
+    {
+      title: "Learn",
+      url: "#",
+      icon: BookOpenText,
+      index: 1,
+    },
+    {
+      title: "Stats",
+      url: "#",
+      icon: ChartPie,
+      index: 2,
+    },
+    {
+      title: "User",
+      url: "#",
+      icon: UserRound,
+      index: 3,
+    },
+    {
+      title: "Settings",
+      url: "#",
+      icon: Settings,
+      index: 4,
+    },
+  ],
+  user: {
+    name: "손한종",
+    email: "dummy@test.com",
+  },
+};
 
-const items = [
-  {
-    title: "Home",
-    url: "#",
-    icon: House,
-    index: 0,
-  },
-  {
-    title: "Learn",
-    url: "#",
-    icon: BookOpenText,
-    index: 1,
-  },
-  {
-    title: "Stats",
-    url: "#",
-    icon: ChartPie,
-    index: 2,
-  },
-  {
-    title: "User",
-    url: "#",
-    icon: UserRound,
-    index: 3,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
-    index: 4,
-  },
-];
-
-export function AppSidebar() {
-  const [activeIndex, setActiveIndex] = useState(0);
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" {...props}>
+      <SidebarHeader>{/* <TeamSwitcher teams={data.teams} /> */}</SidebarHeader>
       <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>WishDev</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton
-                    asChild
-                    isActive={activeIndex === item.index}
-                    onClick={() => setActiveIndex(item.index)}
-                  >
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        <NavMain items={data.navMain} />
+        {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <AppSidebarFooter />
-          </SidebarMenuItem>
-        </SidebarMenu>
+        <NavUser user={data.user} />
       </SidebarFooter>
+      <SidebarRail />
     </Sidebar>
   );
 }
