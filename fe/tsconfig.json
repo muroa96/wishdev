@@ -1,10 +1,15 @@
 {
   "compilerOptions": {
+<<<<<<< HEAD
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+=======
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+>>>>>>> 8e231236ca1204736a6aeffe62a07d4316bc17a0
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -22,11 +27,16 @@
       }
     ],
     "paths": {
+<<<<<<< HEAD
       "@/*": [
         "./src/*"
       ]
     },
     "target": "ES2017"
+=======
+      "@/*": ["./*"]
+    }
+>>>>>>> 8e231236ca1204736a6aeffe62a07d4316bc17a0
   },
   "include": [
     "next-env.d.ts",
