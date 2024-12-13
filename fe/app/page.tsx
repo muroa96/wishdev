@@ -1,3 +1,5 @@
+import { AppHome } from "@/src/pages/home";
+
 export default function Home() {
-  return <div>hello</div>;
+  return <AppHome />;
 }
