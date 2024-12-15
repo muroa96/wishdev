@@ -1,1 +1,1 @@
-export { AppSidebar } from "@/src/widgets/sidebar/ui/app-sidebar";
+export { SiteSidebar } from "@/src/widgets/sidebar/ui/site-sidebar";
